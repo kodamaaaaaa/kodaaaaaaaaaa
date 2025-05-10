@@ -201,12 +201,17 @@
 
 <script>
     function selectStatus(button) {
-        const row = button.closest("tr");
-        const buttons = row.querySelectorAll(".circle-button");
-        buttons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
+        // ボタンに「active」クラスが既にあるか確認
+        if (button.classList.contains("active")) {
+            // 既に選択されている場合は、選択を解除
+            button.classList.remove("active");
+        } else {
+            // まだ選択されていない場合は、選択状態にする
+            button.classList.add("active");
+        }
     }
 </script>
+
 
 </body>
 </html>
