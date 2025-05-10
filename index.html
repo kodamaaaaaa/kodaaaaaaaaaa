@@ -48,7 +48,7 @@
         .button {
             width: 40px;
             height: 40px;
-            border-radius: 50%; /* 丸型に変更 */
+            border-radius: 50%;
             border: 2px solid #ccc;
             background-color: #fff;
             cursor: pointer;
@@ -56,6 +56,7 @@
             font-size: 18px;
             color: #3498db;
             font-weight: bold;
+            margin: 5px;
         }
 
         .button.active {
@@ -79,6 +80,10 @@
             margin: 0 auto;
             overflow-x: auto;
         }
+
+        td button {
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -100,23 +105,23 @@
                 <tr>
                     <td>Tk 556297297</td>
                     <td>山田安奈</td>
-                    <td><button class="button" onclick="fillButton(this)">出席</button></td>
-                    <td><button class="button" onclick="fillButton(this)">遅刻</button></td>
-                    <td><button class="button" onclick="fillButton(this)">欠席</button></td>
-                    <td><button class="button" onclick="fillButton(this)">公欠</button></td>
+                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
+                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
+                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
+                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
                     <td class="record-col">自己記録</td>
                 </tr>
-                
             </tbody>
         </table>
     </div>
 
     <script>
         function fillButton(button) {
-            button.style.backgroundColor = '#3498db'; 
-            button.style.color = 'white'; 
-            button.style.borderColor = '#3498db'; 
+            button.style.backgroundColor = '#3498db';
+            button.style.color = 'white';
+            button.style.borderColor = '#3498db';
         }
     </script>
 </body>
 </html>
+
