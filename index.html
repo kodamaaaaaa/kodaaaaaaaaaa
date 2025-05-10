@@ -2,36 +2,78 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>出席管理システム</title>
     <style>
         body {
-            font-family: sans-serif;
-            margin: 20px;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f6f9;
+            color: #333;
         }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background-color: #f0f0f0;
-        }
-        .circle-button {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid #555;
             background-color: white;
-            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        th, td {
+            padding: 12px 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            font-size: 16px;
+        }
+
+        .circle-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
         .circle-button.active {
             background-color: #3498db;
             border-color: #3498db;
+        }
+
+        .circle-button:hover {
+            background-color: #ecf0f1;
+        }
+
+        .record-col {
+            text-align: left;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .table-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
         }
     </style>
 </head>
@@ -39,179 +81,79 @@
 
 <h1>出席管理システム</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>学籍番号</th>
-            <th>氏名</th>
-            <th>出席</th>
-            <th>遅刻</th>
-            <th>欠席</th>
-            <th>公欠</th>
-            <th>記録</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Tk 556297297</td>
-            <td>山田安奈</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>自己記録</td>
-        </tr>
-        <tr>
-            <td>Tk 529572975</td>
-            <td>馬場太郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>自己記録</td>
-        </tr>
-        <tr>
-            <td>Tk 572957297</td>
-            <td>佐々木まお</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000001</td>
-            <td>田中一郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000002</td>
-            <td>鈴木二郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000003</td>
-            <td>高橋三郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000004</td>
-            <td>吉田四郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000005</td>
-            <td>佐藤五郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000006</td>
-            <td>中村六郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000007</td>
-            <td>小林七郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000008</td>
-            <td>松本八郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000009</td>
-            <td>井上九郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000010</td>
-            <td>加藤十郎</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000011</td>
-            <td>松田十一</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000012</td>
-            <td>山口十二</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-        <tr>
-            <td>Tk 100000100</td>
-            <td>佐藤百合</td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-            <td>none</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>学籍番号</th>
+                <th>氏名</th>
+                <th>出席</th>
+                <th>遅刻</th>
+                <th>欠席</th>
+                <th>公欠</th>
+                <th>記録</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tk 556297297</td>
+                <td>山田安奈</td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td class="record-col">自己記録</td>
+            </tr>
+            <tr>
+                <td>Tk 529572975</td>
+                <td>馬場太郎</td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td class="record-col">自己記録</td>
+            </tr>
+            <tr>
+                <td>Tk 572957297</td>
+                <td>佐々木まお</td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td class="record-col">none</td>
+            </tr>
+            <tr>
+                <td>Tk 100000001</td>
+                <td>田中一郎</td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td class="record-col">none</td>
+            </tr>
+            <tr>
+                <td>Tk 100000002</td>
+                <td>鈴木二郎</td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                <td class="record-col">none</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
 
 <script>
     function selectStatus(button) {
-        // ボタンに「active」クラスが既にあるか確認
         if (button.classList.contains("active")) {
-            // 既に選択されている場合は、選択を解除
             button.classList.remove("active");
         } else {
-            // まだ選択されていない場合は、選択状態にする
             button.classList.add("active");
         }
     }
 </script>
-
 
 </body>
 </html>
