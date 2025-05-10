@@ -45,22 +45,26 @@
             font-size: 16px;
         }
 
-        .circle-button {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        .button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* 丸型に変更 */
             border: 2px solid #ccc;
             background-color: #fff;
             cursor: pointer;
-            transition: all 0.1s ease;
+            transition: all 0.2s ease;
+            font-size: 18px;
+            color: #3498db;
+            font-weight: bold;
         }
 
-        .circle-button.active {
+        .button.active {
             background-color: #3498db;
+            color: white;
             border-color: #3498db;
         }
 
-        .circle-button:hover {
+        .button:hover {
             background-color: #ecf0f1;
         }
 
@@ -96,152 +100,22 @@
                 <tr>
                     <td>Tk 556297297</td>
                     <td>山田安奈</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
+                    <td><button class="button" onclick="fillButton(this)">出席</button></td>
+                    <td><button class="button" onclick="fillButton(this)">遅刻</button></td>
+                    <td><button class="button" onclick="fillButton(this)">欠席</button></td>
+                    <td><button class="button" onclick="fillButton(this)">公欠</button></td>
                     <td class="record-col">自己記録</td>
                 </tr>
-                <tr>
-                    <td>Tk 529572975</td>
-                    <td>馬場太郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">自己記録</td>
-                </tr>
-                <tr>
-                    <td>Tk 572957297</td>
-                    <td>佐々木まお</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000001</td>
-                    <td>田中一郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000002</td>
-                    <td>鈴木二郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000001</td>
-                    <td>鈴木太郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000002</td>
-                    <td>鈴木二郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000003</td>
-                    <td>高橋三郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000004</td>
-                    <td>田中四郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000005</td>
-                    <td>佐藤五郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000006</td>
-                    <td>加藤六郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000007</td>
-                    <td>伊藤七郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000008</td>
-                    <td>山本八郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000009</td>
-                    <td>中村九郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
-                <tr>
-                    <td>Tk 100000010</td>
-                    <td>小林十郎</td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td><button class="circle-button" onclick="selectStatus(this)"></button></td>
-                    <td class="record-col">none</td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
+
     <script>
-        function selectStatus(button) {
-            const row = button.closest('tr');
-            const buttons = row.querySelectorAll('.circle-button');
-            
-            if (button.classList.contains("active")) {
-                button.classList.remove("active");
-            } else {
-                buttons.forEach(btn => btn.classList.remove("active"));
-                button.classList.add("active");
-            }
+        function fillButton(button) {
+            button.style.backgroundColor = '#3498db'; 
+            button.style.color = 'white'; 
+            button.style.borderColor = '#3498db'; 
         }
     </script>
 </body>
