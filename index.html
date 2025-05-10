@@ -1,127 +1,118 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>出席管理システム</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f6f9;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>出席管理システム</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f6f9;
+      color: #333;
+    }
 
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            color: #2c3e50;
-        }
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: #2c3e50;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        th, td {
-            padding: 12px 20px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
+    th, td {
+      padding: 12px 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
 
-        th {
-            background-color: #3498db;
-            color: white;
-            font-weight: bold;
-        }
+    th {
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+    }
 
-        td {
-            font-size: 16px;
-        }
+    td {
+      font-size: 16px;
+    }
 
-        .button {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #ccc;
-            background-color: #fff;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 18px;
-            color: #3498db;
-            font-weight: bold;
-            margin: 5px;
-        }
+    .button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 18px;
+      color: transparent;
+      margin: 5px;
+    }
 
-        .button.active {
-            background-color: #3498db;
-            color: white;
-            border-color: #3498db;
-        }
+    .button.filled {
+      background-color: #3498db;
+      border-color: #3498db;
+    }
 
-        .button:hover {
-            background-color: #ecf0f1;
-        }
+    .record-col {
+      text-align: left;
+      font-style: italic;
+      color: #7f8c8d;
+    }
 
-        .record-col {
-            text-align: left;
-            font-style: italic;
-            color: #7f8c8d;
-        }
+    .table-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
 
-        .table-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow-x: auto;
-        }
-
-        td button {
-            display: inline-block;
-        }
-    </style>
+    td button {
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
-    <h1>出席管理システム</h1>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>学籍番号</th>
-                    <th>氏名</th>
-                    <th>出席</th>
-                    <th>遅刻</th>
-                    <th>欠席</th>
-                    <th>公欠</th>
-                    <th>記録</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tk 556297297</td>
-                    <td>山田安奈</td>
-                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
-                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
-                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
-                    <td><button class="button" onclick="fillButton(this)">〇</button></td>
-                    <td class="record-col">自己記録</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <h1>出席管理システム</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>学籍番号</th>
+          <th>氏名</th>
+          <th>出席</th>
+          <th>遅刻</th>
+          <th>欠席</th>
+          <th>公欠</th>
+          <th>記録</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tk 556297297</td>
+          <td>山田安奈</td>
+          <td><button class="button" onclick="fillButton(this)"></button></td>
+          <td><button class="button" onclick="fillButton(this)"></button></td>
+          <td><button class="button" onclick="fillButton(this)"></button></td>
+          <td><button class="button" onclick="fillButton(this)"></button></td>
+          <td class="record-col">自己記録</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <script>
-        function fillButton(button) {
-            button.style.backgroundColor = '#3498db';
-            button.style.color = 'white';
-            button.style.borderColor = '#3498db';
-        }
-    </script>
+  <script>
+    function fillButton(button) {
+      button.classList.add('filled');
+    }
+  </script>
 </body>
 </html>
-
