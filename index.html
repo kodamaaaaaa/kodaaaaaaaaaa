@@ -46,27 +46,25 @@
         }
 
         .circle-button {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    background-color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            outline: none; /* フォーカス時の青い枠を消す */
+            box-shadow: none; /* シャドウを消す */
+        }
 
-.circle-button:focus, .circle-button:active {
-    outline: none;  
-}
+        .circle-button.active {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
 
-.circle-button.active {
-    background-color: #3498db;
-    border-color: #3498db;
-}
-
-.circle-button:hover {
-    background-color: #ecf0f1;
-}
+        .circle-button:hover {
+            background-color: #ecf0f1;
+        }
 
         .record-col {
             text-align: left;
