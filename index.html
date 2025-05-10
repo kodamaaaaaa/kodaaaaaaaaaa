@@ -1,14 +1,102 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <title>Webページの練習</title>
-  </head>
-  <body>
-    <h1>第一章 入門編</h1>
-    <h2>1.1 ブラウザとは</h2>
-    <p>ブラウザとは本をパラパラ・・・</p>
-    <h6>1.2 HTMLとは</h6>
-    <p>コレカラプログラミングがんばるぞ.......</p>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>出席管理システム</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+        .circle-button {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .circle-button.active {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>学籍番号</th>
+            <th>氏名</th>
+            <th>Attendance</th>
+            <th>Late</th>
+            <th>Absent</th>
+            <th>Official absent</th>
+            <th>記録</th>
+        </tr>
+        <tr>
+            <td>Tk 556297297</td>
+            <td>山田安奈</td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td>自己記録</td>
+        </tr>
+        <tr>
+            <td>Tk 529572975</td>
+            <td>馬場太郎</td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td>自己記録</td>
+        </tr>
+        <tr>
+            <td>Tk 572957297</td>
+            <td>佐々木まお</td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>Tk 562957297</td>
+            <td>佐藤あきら</td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>Tk 572957297</td>
+            <td>佐藤亜紀</td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td><button class="circle-button" onclick="toggleButton(this)">○</button></td>
+            <td>none</td>
+        </tr>
+    </table>
+
+    <script>
+        function toggleButton(button) {
+            button.classList.toggle('active');
+        }
+    </script>
+</body>
 </html>
+
+
  
