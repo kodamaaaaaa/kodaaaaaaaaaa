@@ -7,7 +7,6 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      margin: 0;
       padding: 20px;
       background-color: #f4f6f9;
       color: #333;
@@ -25,7 +24,6 @@
       margin-top: 20px;
       background-color: white;
       border-radius: 8px;
-      overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
@@ -38,11 +36,6 @@
     th {
       background-color: #3498db;
       color: white;
-      font-weight: bold;
-    }
-
-    td {
-      font-size: 16px;
     }
 
     .button {
@@ -52,13 +45,11 @@
       border: 2px solid #ccc;
       background-color: #fff;
       cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 18px;
-      color: transparent;
+      transition: background-color 0.2s, border-color 0.2s;
       margin: 5px;
     }
 
-    .button.filled {
+    .filled {
       background-color: #3498db;
       border-color: #3498db;
     }
@@ -73,10 +64,6 @@
       max-width: 1200px;
       margin: 0 auto;
       overflow-x: auto;
-    }
-
-    td button {
-      display: inline-block;
     }
   </style>
 </head>
@@ -99,10 +86,10 @@
         <tr>
           <td>Tk 556297297</td>
           <td>山田安奈</td>
-          <td><button class="button" onclick="fillButton(this)"></button></td>
-          <td><button class="button" onclick="fillButton(this)"></button></td>
-          <td><button class="button" onclick="fillButton(this)"></button></td>
-          <td><button class="button" onclick="fillButton(this)"></button></td>
+          <td><button class="button" onclick="toggleButton(this)"></button></td>
+          <td><button class="button" onclick="toggleButton(this)"></button></td>
+          <td><button class="button" onclick="toggleButton(this)"></button></td>
+          <td><button class="button" onclick="toggleButton(this)"></button></td>
           <td class="record-col">自己記録</td>
         </tr>
       </tbody>
@@ -110,8 +97,16 @@
   </div>
 
   <script>
-    function fillButton(button) {
-      button.classList.add('filled');
+    function toggleButton(button) {
+      const row = button.closest('tr');
+      const buttons = row.querySelectorAll('.button');
+
+      if (button.classList.contains('filled')) {
+        button.classList.remove('filled');
+      } else {
+        buttons.forEach(b => b.classList.remove('filled'));
+        button.classList.add('filled');
+      }
     }
   </script>
 </body>
